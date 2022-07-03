@@ -4,4 +4,4 @@ from .models import Link
 class LinkSerializer(serializers.ModelSerializer):
     class Meta:
         model = Link
-        fields = "__name__"
+        fields = "__all__"
