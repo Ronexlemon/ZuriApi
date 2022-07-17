@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+
+from links.managers import ActiveLinkManager
 ...
 # Create your models here.
 class Link(models.Model):
@@ -10,6 +12,10 @@ class Link(models.Model):
         get_user_model(),on_delete = models.CASCADE)
     created_date =models.DateTimeField()
     active =models.BooleanField(default=True)
+    objects = models.Manager()
+    public = ActiveLinkManager()
+
+    
 
     def __str__(self):
         return self.author
